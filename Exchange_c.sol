@@ -71,3 +71,8 @@ contract Exchange_Contract {
         require(IERC20(_token).transferFrom(address(this), msg.sender, _amount), "The transaction did not occur");
     }
 }
+     function deleteContract() public {
+        require(msg.sender == owner, "Not the owner");
+        selfdestruct(payable(msg.sender));
+    }
+}
